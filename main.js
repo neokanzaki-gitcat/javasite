@@ -241,7 +241,7 @@ function isGameOver() {
   for (let i=0;i<board.length;i++) {
     for (let j=0;j<board[i].length;j++) {
       if(board[i][j]=== 0) emptySquare = true;
-      if(board[i][j]=== 2048 && !wonGame) return {gameOver:true,message:"You won!"};
+      if(board[i][j]=== 2048 && !wonGame) return {gameOver:true,message:"Ты выиграл!"};
       if(j!=3 && board[i][j] === board[i][j+1]) emptySquare = true;
       if(i!=3 && board[i][j] === board[i+1][j]) emptySquare = true;
 
@@ -253,11 +253,11 @@ function isGameOver() {
 }
 
 function showAlert(message) {
-  if(message=="Game over!")
-    alert.innerHTML = '<div>Game over!</div> <button class="newGame" onclick="startNewGame()">Try again</button>';
-  if(message=="You won!") {
+  if(message=="Игра окончена!")
+    alert.innerHTML = '<div>Игра окончена!</div> <button class="newGame" onclick="startNewGame()">Try again</button>';
+  if(message=="Вы выиграли!") {
     wonGame = true;
-    alert.innerHTML ='<div>You won!</div> <button class="newGame" onclick="startNewGame()">New game</button><button class="newGame" onclick="continuePlaying()">Continue</button>';
+    alert.innerHTML ='<div>Вы выиграли!</div> <button class="newGame" onclick="startNewGame()">New game</button><button class="newGame" onclick="continuePlaying()">Continue</button>';
     window.removeEventListener("keydown",onDirectionKeyPress);
   }
   alert.style.display="flex";
